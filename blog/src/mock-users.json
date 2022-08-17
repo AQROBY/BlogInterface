@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Robert",
+        "email": "robert@yahoo.com",
+        "password": "asdf",
+        "created_at ": "2022-08-12",
+        "modified_at": "2022-08-12"
+    },
+    {
+        "id": 2,
+        "name": "Denis",
+        "email": "denis@yahoo.com",
+        "password": "sdftr",
+        "created_at ": "2022-08-16",
+        "modified_at": "2022-08-18"
+    },
+    {
+        "id": 3,
+        "name": "Bogdan",
+        "email": "bogdan@yahoo.com",
+        "password": "assddddwww",
+        "created_at ": "2022-08-16",
+        "modified_at": "2022-08-18"
+    }
+]

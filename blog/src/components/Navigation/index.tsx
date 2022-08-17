@@ -12,11 +12,11 @@ const Navigation: React.FunctionComponent<INavigationProps> = (props) => {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="logo" width={'5%'} />
                 </NavbarBrand>
                 <Nav className="mr-auto" navbar></Nav>
-                <NavbarText tag={Link} to="posts">
+                <NavbarText tag={Link} to="/posts">
                     Posts
                 </NavbarText>
                 <NavbarText className="mr-2 ml-2">|</NavbarText>
-                <NavbarText tag={Link} to="users">
+                <NavbarText tag={Link} to="/users">
                     Users
                 </NavbarText>
             </Container>

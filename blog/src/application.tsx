@@ -9,10 +9,9 @@ export interface IApplicationProps {}
 const Application: React.FunctionComponent<IApplicationProps> = (props) => {
     return (
         <Routes>
-            <Route path="/" element={<Homepage />}>
-                <Route path="posts" element={<Posts />} />
-                <Route path="users" element={<Users />} />
-            </Route>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/users" element={<Users />} />
         </Routes>
     );
 };
