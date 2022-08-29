@@ -1,24 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Nav, Navbar, NavbarBrand, NavbarText } from 'reactstrap';
+import { Container, Nav, Navbar, NavbarBrand, NavbarText, NavItem } from 'reactstrap';
 
-export interface INavigationProps {}
-
-const Navigation: React.FunctionComponent<INavigationProps> = (props) => {
+const Navigation: React.FunctionComponent = () => {
     return (
-        <Navbar color="light" light sticky="top" expand="md">
-            <Container>
+        <Navbar color="light" light sticky="top">
+            <Container className="ml-1">
                 <NavbarBrand tag={Link} to="/">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="logo" width={'5%'} />
+                    <img className="mr-1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="logo" width={'6%'} />
+                    BlogApp
                 </NavbarBrand>
-                <Nav className="mr-auto" navbar></Nav>
-                <NavbarText tag={Link} to="/posts">
-                    Posts
-                </NavbarText>
-                <NavbarText className="mr-2 ml-2">|</NavbarText>
-                <NavbarText tag={Link} to="/users">
-                    Users
-                </NavbarText>
+                <Nav className="mr-auto" navbar>
+                    <NavItem>
+                        <NavbarText tag={Link} to="/posts">
+                            Posts
+                        </NavbarText>
+                    </NavItem>
+                    <NavItem>
+                        <NavbarText tag={Link} to="/users">
+                            Users
+                        </NavbarText>
+                    </NavItem>
+                </Nav>
             </Container>
         </Navbar>
     );

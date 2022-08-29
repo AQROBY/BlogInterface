@@ -3,9 +3,7 @@ import { Container } from 'reactstrap';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 
-export interface IUsersProps {}
-
-const Users: React.FunctionComponent<IUsersProps> = (props) => {
+const Users: React.FunctionComponent = () => {
     return (
         <Container fluid className="p-0">
             <Navigation />
