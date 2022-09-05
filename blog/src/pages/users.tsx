@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'reactstrap';
+import CreateEditPost from '../components/createEditPost';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 
@@ -9,6 +10,7 @@ const Users: React.FunctionComponent = () => {
             <Navigation />
             <Header title="Users" />
             <Container className="mt-5">Blog stuf here....</Container>
+            <CreateEditPost />
         </Container>
     );
 };

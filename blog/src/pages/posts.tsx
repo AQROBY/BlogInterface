@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import Post from '../components/posts';
 import { Container } from 'reactstrap';
+import createEditPost from '../components/createEditPost';
 
 const Posts: React.FunctionComponent = () => {
     return (
@@ -13,6 +14,7 @@ const Posts: React.FunctionComponent = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <Post />
+                        <button onClick={createEditPost}>here</button>
                     </div>
                 </div>
             </div>
