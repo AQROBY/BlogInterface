@@ -10,7 +10,6 @@ const Users: React.FunctionComponent = () => {
             <Navigation />
             <Header title="Users" />
             <Container className="mt-5">Blog stuf here....</Container>
-            <CreateEditPost />
         </Container>
     );
 };
