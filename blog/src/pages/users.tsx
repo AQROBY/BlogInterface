@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import CreateEditPost from '../components/createEditPost';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 
