@@ -5,11 +5,10 @@ export interface IHeaderProps {
     height?: string;
     image?: string;
     title: string;
-    children?: React.ReactNode;
 }
 
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
-    const { children, height, image, title } = props;
+    const { height, image, title } = props;
 
     const headerStyle = {
         background: 'linear-gradient(rgba(36, 20, 38, 0.5), rgba(36, 39, 38, 0.5)), url(' + image + ') no-repeat center center',
@@ -26,7 +25,6 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
                 <Row className="align-items-center text-center">
                     <Col>
                         <h1 className="display-1 text-white mt-4 mb-4">{title}</h1>
-                        {children}
                     </Col>
                 </Row>
             </Container>
