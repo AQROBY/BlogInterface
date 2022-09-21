@@ -5,29 +5,35 @@ import Post from '../components/posts';
 import { Container } from 'reactstrap';
 import CreateEditPost from '../components/Modals/createEditPost';
 import { useEffect, useState } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 const Posts: React.FunctionComponent = () => {
     const [modal, setModal] = useState(false);
 
-    return (
-        <Container fluid className="p-0">
-            <Navigation />
-            <div className="main">
-                <CreateEditPost open={modal} close={() => setModal(false)} />
-                <Header title="Posts" />
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <button type="button" className="modalButton mt-3 btn btn-primary" onClick={() => setModal(true)}>
-                                Add Post
-                            </button>
+    const navigate = useNavigate();
 
-                            <Post />
+    return (
+        <>
+            <Container fluid className="p-0">
+                <Navigation />
+                <div className="main">
+                    <CreateEditPost open={modal} close={() => setModal(false)} />
+                    <Header title="Posts" />
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <Link to="create">
+                                    <button type="button" className="modalButton mt-3 btn btn-primary">
+                                        Add Post
+                                    </button>
+                                </Link>
+                                <Post />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </Container>
+            </Container>
+        </>
     );
 };
 
