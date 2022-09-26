@@ -8,10 +8,10 @@ const Application: React.FunctionComponent = () => {
     return (
         <Routes>
             <Route path="/" element={<Posts />} />
-            <Route path="posts" element={<Posts />}>
+            <Route path="posts">
+                <Route path="" element={<Posts />} />
                 <Route path="create" element={<Create />} />
             </Route>
-            <Route path="create" element={<Create />} />
             <Route path="/users" element={<Users />} />
         </Routes>
     );

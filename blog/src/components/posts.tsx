@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import data from '../mock-posts.json';
 
 export default function Posts() {
