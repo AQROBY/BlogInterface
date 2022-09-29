@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import data from '../mock-posts.json';
 
-export default function Posts() {
+export default function Posts(dataInput?: any) {
+    var dataProcessed = dataInput.dataInput;
+    interface Data {
+        title: string;
+        contents: string;
+        created_at: string;
+        modified_at: string;
+    }
+
+    console.log(dataProcessed.title);
+    data.push(dataProcessed);
     let dataSorted = data.sort((a, b) => (a.modified_at > b.modified_at ? 1 : -1));
     let dataMapped: { id: number; title: string; contents: string; created_at: string; modified_at: string }[] = dataSorted;
 

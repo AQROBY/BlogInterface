@@ -4,10 +4,19 @@ import Post from '../components/posts';
 import { Container } from 'reactstrap';
 import CreateEditPost from '../components/Modals/createEditPost';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Posts: React.FunctionComponent = () => {
     const [modal, setModal] = useState(false);
+    const location = useLocation();
+    const state = location.state as locationData;
+
+    interface locationData {
+        title: string;
+        content: string;
+    }
+
+    var data = { title: state.title, contents: state.content, created_at: new Date().toString(), modified_at: new Date().toString() };
 
     return (
         <Container fluid className="p-0">
@@ -23,7 +32,7 @@ const Posts: React.FunctionComponent = () => {
                                     Add Post
                                 </button>
                             </Link>
-                            <Post />
+                            <Post dataInput={data} />
                         </div>
                     </div>
                 </div>

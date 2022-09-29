@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Create from './pages/crud/create';
 import Posts from './pages/posts';
 import Users from './pages/users';
