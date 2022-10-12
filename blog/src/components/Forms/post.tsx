@@ -3,10 +3,6 @@ import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Post = () => {
-    const navigate = useNavigate();
-    const toPosts = () => {
-        navigate('/posts', { state: data });
-    };
     var data: { title: string; content: string } = { title: '', content: '' };
 
     return (
@@ -22,13 +18,7 @@ const Post = () => {
                 <Form.Control as="textarea" rows={25} name="contents" placeholder="Enter contents" onChange={(event) => (data.content = event.target.value)} />
                 <Form.Text className="text-muted">Example: The sun was up early today, I wanted to...</Form.Text>
             </Form.Group>
-            <Button
-                variant="primary"
-                type="submit"
-                onClick={() => {
-                    toPosts();
-                }}
-            >
+            <Button variant="primary" type="submit">
                 Submit
             </Button>
         </Form>

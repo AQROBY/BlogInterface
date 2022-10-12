@@ -1,17 +1,14 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Application from './application';
 import 'bootstrap';
 import 'react-toastify';
-import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <BrowserRouter>
         <Application />
-        <ToastContainer />
     </BrowserRouter>
 );
 

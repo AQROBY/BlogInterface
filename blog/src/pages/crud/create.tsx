@@ -4,18 +4,16 @@ import Post from '../../components/Forms/post';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 
-const Create = (props: any) => {
-    const { entity } = props.props;
-
-    if (entity == 'post') {
-        return (
-            <Container fluid className="p-0">
-                <Navigation />
-                <Header title="Create Post" />
-                <Container className="center">{<Post />}</Container>
-            </Container>
-        );
-    }
+const Create = () => {
+    // if (entity == 'post') {
+    //     return (
+    //         <Container fluid className="p-0">
+    //             <Navigation />
+    //             <Header title="Create Post" />
+    //             <Container className="center">{<Post />}</Container>
+    //         </Container>
+    //     );
+    // }
 
     return (
         <Container fluid className="p-0">

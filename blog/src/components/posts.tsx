@@ -1,27 +1,12 @@
-import React, { useState } from 'react';
-import data from '../mock-posts.json';
+import { useState } from 'react';
 
-export default function Posts(dataInput?: any) {
-    var dataProcessed = dataInput.dataInput;
-    interface Data {
-        title: string;
-        contents: string;
-        created_at: string;
-        modified_at: string;
-    }
-
-    console.log(dataProcessed.title);
-    data.push(dataProcessed);
-    let dataSorted = data.sort((a, b) => (a.modified_at > b.modified_at ? 1 : -1));
-    let dataMapped: { id: number; title: string; contents: string; created_at: string; modified_at: string }[] = dataSorted;
-
-    const [posts, setPosts] = useState(dataMapped);
+const Posts = ({ posts }: any) => {
     return (
         <div>
             {posts.length === 0 ? (
                 <p>No posts found!</p>
             ) : (
-                posts.map((post) => (
+                posts.map((post: any) => (
                     <div className="border mt-3 p-3 bgl" key={post.id}>
                         <div className="row p-2">
                             <div>
@@ -36,4 +21,6 @@ export default function Posts(dataInput?: any) {
             )}
         </div>
     );
-}
+};
+
+export default Posts;
