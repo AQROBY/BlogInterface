@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 const Posts = ({ posts }: any) => {
     return (
         <div>

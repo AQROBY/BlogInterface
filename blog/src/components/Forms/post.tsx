@@ -1,15 +1,14 @@
-import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 
-const Post = () => {
+const Post = ({ posts }: any) => {
     var data: { title: string; content: string } = { title: '', content: '' };
+    var x = posts;
 
     return (
         <Form className="mt-3" title="Create Post">
             <Form.Group className="mb-3 content">
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="text" name="title" placeholder="Enter post title" onChange={(event) => (data.title = event.target.value)} />
+                <Form.Control type="text" name="title" placeholder={'Enter post title'} onChange={(event) => (data.title = event.target.value)} />
                 <Form.Text className="text-muted">Example: Sunny Day</Form.Text>
             </Form.Group>
 

@@ -1,25 +1,15 @@
-import React from 'react';
 import { Container } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 import Post from '../../components/Forms/post';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 
-const Create = () => {
-    // if (entity == 'post') {
-    //     return (
-    //         <Container fluid className="p-0">
-    //             <Navigation />
-    //             <Header title="Create Post" />
-    //             <Container className="center">{<Post />}</Container>
-    //         </Container>
-    //     );
-    // }
-
+const Create = ({ posts }: any) => {
     return (
         <Container fluid className="p-0">
             <Navigation />
-            <Header title="Users" />
-            <Container className="mt-5">Nothing to see here...</Container>
+            <Header title="Create Post" />
+            <Container className="center">{<Post posts={posts} />}</Container>
         </Container>
     );
 };
