@@ -1,5 +1,4 @@
 import { Container } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
 import Post from '../../components/Forms/post';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';

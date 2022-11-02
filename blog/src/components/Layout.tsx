@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Container } from 'react-bootstrap';
 import data from '../mock-posts.json';
 import Header from './Header';
 import Navigation from './Navigation';

@@ -1,43 +1,33 @@
-import React from 'react';
-import seed from '../mock-posts.json';
+import postsSeed from '../mock-posts.json';
 
-let instance: Repo;
-let counter = 0;
-
-class Repo extends React.Component {
-    data: any;
-
-    constructor() {
-        super(React.Component);
-        this.data = seed;
-        counter = this.data.length;
-        if (instance) {
-            return instance;
+class PostRepo {
+    static instance: any = null;
+    static data: any = null;
+    static getInstance() {
+        if (sessionStorage.getItem('data') == null) {
+            PostRepo.instance = new PostRepo();
+            PostRepo.data = postsSeed;
+            sessionStorage.setItem('data', JSON.stringify(postsSeed));
         }
-        instance = this;
-    }
-
-    getInstance() {
         return this;
     }
 
-    add(item: any) {
-        this.data.push(item);
-        this.incrementCounter();
+    static findAll() {
+        PostRepo.data = sessionStorage.getItem('data');
+        this.instance = JSON.parse(PostRepo.data);
+        return this.instance;
     }
 
-    incrementCounter() {
-        return ++counter;
+    static create(item: any) {
+        this.instance.push(item);
+        const newData = this.instance;
+        this.data = newData;
+        sessionStorage.setItem('data', JSON.stringify(newData));
     }
 
-    getAll() {
-        return this.data;
-    }
-
-    length() {
-        return counter;
+    static size() {
+        return PostRepo.instance.length;
     }
 }
 
-const RepoCounter = Object.freeze(new Repo());
-export default RepoCounter;
+export default PostRepo;

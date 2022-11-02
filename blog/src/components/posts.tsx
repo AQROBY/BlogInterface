@@ -1,16 +1,14 @@
-import Repo from '../services/repo';
-import data from '../mock-posts.json';
-import { repoInitialisation } from '../services/repoInitialisation';
+import PostRepo from '../services/repo';
 
 const Posts = () => {
-    var repo = Repo;
-    let asdsa = repo.getAll();
+    const repo = PostRepo.getInstance();
+    let asdsa = PostRepo.findAll();
     return (
         <div>
-            {repo.length() === 0 ? (
+            {repo.instance.length === 0 ? (
                 <p>No posts found!</p>
             ) : (
-                repo.getAll().map((post: any) => (
+                repo.findAll().map((post: any) => (
                     <div className="border mt-3 p-3 bgl" key={post.id}>
                         <div className="row p-2">
                             <div>

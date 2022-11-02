@@ -1,11 +1,11 @@
 import { Button, Form } from 'react-bootstrap';
-import Repo from '../../services/repo';
-import { repoInitialisation } from '../../services/repoInitialisation';
+import PostRepo from '../../services/repo';
 
 const Post = (posts: any) => {
-    var repo = Repo;
+    const repo = PostRepo.getInstance();
+    const length = repo.instance.length;
     var data: { id: string; title: string; content: string; createdAt: string; editedAt: string } = {
-        id: (repo.length() + 1).toString(),
+        id: (length + 1).toString(),
         title: '',
         content: '',
         createdAt: Date.now().toString(),
@@ -13,8 +13,8 @@ const Post = (posts: any) => {
     };
 
     function handleClick(data: any) {
-        repo.add(data);
-        let asd = repo.getAll();
+        repo.create(data);
+        let asd = repo.findAll();
     }
 
     return (
