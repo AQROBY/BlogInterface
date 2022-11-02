@@ -2,16 +2,14 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PostRepo from '../../services/repo';
 
-const Post = (posts: any) => {
+const Post = () => {
     const repo = PostRepo.getInstance();
-    const length = repo.instance.length;
-    const date = new Date();
     var data: { id: string; title: string; contents: string; created_at: Date; modified_at: Date } = {
-        id: (length + 1).toString(),
+        id: (repo.size() + 1).toString(),
         title: '',
         contents: '',
-        created_at: date,
-        modified_at: date
+        created_at: new Date(),
+        modified_at: new Date()
     };
 
     function handleClick(data: any) {
@@ -19,7 +17,7 @@ const Post = (posts: any) => {
     }
 
     return (
-        <Form className="mt-3" title="Create Post">
+        <Form className="mt-3 mb-4" title="Create Post">
             <Form.Group className="mb-3 content">
                 <Form.Label>Title</Form.Label>
                 <Form.Control type="text" name="title" placeholder={'Enter post title'} onChange={(event) => (data.title = event.target.value)} />

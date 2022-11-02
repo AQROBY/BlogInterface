@@ -9,7 +9,7 @@ const Posts = () => {
 
     return (
         <div>
-            {repo.instance.length === 0 ? (
+            {repo.size() === 0 ? (
                 <p>No posts found!</p>
             ) : (
                 repo.findAll().map((post: any) => (

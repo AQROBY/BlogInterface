@@ -26,7 +26,7 @@ class PostRepo {
     }
 
     static size() {
-        return PostRepo.instance.length;
+        return PostRepo.findAll().length;
     }
 }
 
