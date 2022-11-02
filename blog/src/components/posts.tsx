@@ -3,6 +3,8 @@ import PostRepo from '../services/repo';
 const Posts = () => {
     const repo = PostRepo.getInstance();
     let asdsa = PostRepo.findAll();
+
+    function handleDate(date: Date) {}
     return (
         <div>
             {repo.instance.length === 0 ? (

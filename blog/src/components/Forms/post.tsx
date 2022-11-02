@@ -1,20 +1,21 @@
 import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import PostRepo from '../../services/repo';
 
 const Post = (posts: any) => {
     const repo = PostRepo.getInstance();
     const length = repo.instance.length;
-    var data: { id: string; title: string; content: string; createdAt: string; editedAt: string } = {
+    const date = new Date();
+    var data: { id: string; title: string; contents: string; created_at: Date; modified_at: Date } = {
         id: (length + 1).toString(),
         title: '',
-        content: '',
-        createdAt: Date.now().toString(),
-        editedAt: Date.now().toString()
+        contents: '',
+        created_at: date,
+        modified_at: date
     };
 
     function handleClick(data: any) {
         repo.create(data);
-        let asd = repo.findAll();
     }
 
     return (
@@ -27,12 +28,14 @@ const Post = (posts: any) => {
 
             <Form.Group className="mb-3 content">
                 <Form.Label>Content</Form.Label>
-                <Form.Control as="textarea" rows={25} name="contents" placeholder="Enter contents" onChange={(event) => (data.content = event.target.value)} />
+                <Form.Control as="textarea" rows={25} name="contents" placeholder="Enter contents" onChange={(event) => (data.contents = event.target.value)} />
                 <Form.Text className="text-muted">Example: The sun was up early today, I wanted to...</Form.Text>
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={() => handleClick(data)}>
-                Submit
-            </Button>
+            <Link to="/">
+                <Button variant="primary" type="submit" onClick={() => handleClick(data)}>
+                    Submit
+                </Button>
+            </Link>
         </Form>
     );
 };
