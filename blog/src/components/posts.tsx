@@ -17,7 +17,9 @@ const Posts = () => {
                         <div className="row p-2">
                             <div>
                                 <h2>{post.title}</h2>
-                                <h5>{post.contents}</h5>
+                                <div className="contents">
+                                    <h6>{post.contents}</h6>
+                                </div>
                                 <p>Created at: {handleDate(new Date(post.created_at))}</p>
                                 <p>Modified at: {handleDate(new Date(post.modified_at))}</p>
                             </div>
