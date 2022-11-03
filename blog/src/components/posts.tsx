@@ -7,6 +7,10 @@ const Posts = () => {
         return date.toLocaleString();
     }
 
+    function formatContent(content: string) {
+        return content.slice(0, 600) + '...';
+    }
+
     return (
         <div>
             {repo.size() === 0 ? (
@@ -17,8 +21,8 @@ const Posts = () => {
                         <div className="row p-2">
                             <div>
                                 <h2>{post.title}</h2>
-                                <div className="contents">
-                                    <h6>{post.contents}</h6>
+                                <div className="contents mb-3">
+                                    <strong>{formatContent(post.contents)}</strong>
                                 </div>
                                 <p>Created at: {handleDate(new Date(post.created_at))}</p>
                                 <p>Modified at: {handleDate(new Date(post.modified_at))}</p>
