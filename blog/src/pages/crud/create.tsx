@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import Post from '../../components/Forms/post';
+import Post from '../../components/Forms/posts/createPost';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 

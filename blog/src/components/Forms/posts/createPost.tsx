@@ -1,6 +1,6 @@
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import PostRepo from '../../services/repo';
+import PostRepo from '../../../services/repo';
 
 const Post = () => {
     const repo = PostRepo.getInstance();

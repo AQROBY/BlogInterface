@@ -18,6 +18,12 @@ class PostRepo {
         return this.instance;
     }
 
+    static find(id: number) {
+        this.instance = JSON.parse(PostRepo.data);
+        var x = this.instance.find((element: any) => element.id == id);
+        return x;
+    }
+
     static create(item: any) {
         this.instance.push(item);
         const newData = this.instance;
