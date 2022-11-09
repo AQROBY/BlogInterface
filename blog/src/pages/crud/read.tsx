@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 import PostRepo from '../../services/repo';
@@ -22,6 +22,12 @@ const Read = () => {
         <Container fluid className="p-0">
             <Navigation />
             <Header title={post.title} />
+            <div className="float-right mr-5 mt-3 pr-5">
+                <Link to={'/posts/edit/' + post.id} replace>
+                    <button className="btn btn-primary pl-3 pr-3">Edit</button>
+                </Link>
+                <button className="btn btn-danger ml-1">Delete</button>
+            </div>
             <Container className="center">
                 <div className="mt-5 mb-5 pb-5 contents">
                     <p>{post.contents}</p>

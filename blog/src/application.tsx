@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Create from './pages/crud/create';
+import Edit from './pages/crud/edit';
 import Read from './pages/crud/read';
 import Posts from './pages/posts';
 import Users from './pages/users';
@@ -18,6 +19,7 @@ const Application: React.FunctionComponent = () => {
                     <Route path="" element={<Posts />} />
                     <Route path="create" element={<Create />} />
                     <Route path="read/:id" element={<Read />} />
+                    <Route path="edit/:id" element={<Edit />} />
                 </Route>
                 <Route path="/users" element={<Users />} />
             </Routes>
