@@ -15,15 +15,11 @@ const Edit = () => {
     let idAsNumber: number = +id;
     let post = repo.find(idAsNumber);
 
-    function handleDate(date: Date) {
-        return date.toLocaleString();
-    }
-
     return (
         <Container fluid className="p-0">
             <Navigation />
             <Header title="Create Post" />
-            <Container className="center">{<Post title={post.title} contents={post.contents} />}</Container>
+            <Container className="center">{<Post id={post.id} title={post.title} contents={post.contents} />}</Container>
         </Container>
     );
 };

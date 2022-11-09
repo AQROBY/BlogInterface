@@ -6,16 +6,18 @@ const Post = (props: any) => {
     const repo = PostRepo.getInstance();
     var data: { id: string; title: string; contents: string; created_at: Date; modified_at: Date } = {
         id: (repo.size() + 1).toString(),
-        title: '',
-        contents: '',
+        title: props.title,
+        contents: props.contents,
         created_at: new Date(),
         modified_at: new Date()
     };
 
-    let sss = props.title;
-
     function handleClick(data: any) {
-        repo.create(data);
+        if (props.title == undefined) {
+            repo.create(data);
+        } else {
+            repo.update(props.id, data);
+        }
     }
 
     return (

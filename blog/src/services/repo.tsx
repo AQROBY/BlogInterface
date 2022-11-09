@@ -31,6 +31,18 @@ class PostRepo {
         sessionStorage.setItem('data', JSON.stringify(newData));
     }
 
+    static update(id: number, data: any) {
+        const elementToUpdate = this.instance.find((element: any) => element.id == id);
+        const index = this.instance.indexOf(elementToUpdate);
+
+        this.instance[index].title = data.title;
+        this.instance[index].contents = data.contents;
+        this.instance[index].modified_at = data.modified_at;
+        const newData = this.instance;
+        this.data = newData;
+        sessionStorage.setItem('data', JSON.stringify(newData));
+    }
+
     static size() {
         return PostRepo.findAll().length;
     }
