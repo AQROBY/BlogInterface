@@ -4,8 +4,8 @@ import PostRepo from '../../../services/repo';
 
 const Post = (props: any) => {
     const repo = PostRepo.getInstance();
-    var data: { id: string; title: string; contents: string; created_at: Date; modified_at: Date } = {
-        id: (repo.size() + 1).toString(),
+    var data: { id: number; title: string; contents: string; created_at: Date; modified_at: Date } = {
+        id: (PostRepo.assignId() + 1).toString(),
         title: props.title,
         contents: props.contents,
         created_at: new Date(),

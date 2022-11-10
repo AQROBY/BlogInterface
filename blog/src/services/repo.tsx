@@ -43,8 +43,21 @@ class PostRepo {
         sessionStorage.setItem('data', JSON.stringify(newData));
     }
 
+    static delete(id: number) {
+        const elementToDelete = this.instance.find((element: any) => element.id == id);
+        const index = this.instance.indexOf(elementToDelete);
+        this.instance.splice(index, 1);
+        this.data = this.instance;
+        sessionStorage.setItem('data', JSON.stringify(this.instance));
+    }
+
     static size() {
         return PostRepo.findAll().length;
+    }
+
+    static assignId() {
+        const lastElement = this.instance.length - 1;
+        return this.instance[lastElement].id;
     }
 }
 

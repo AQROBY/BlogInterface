@@ -18,6 +18,10 @@ const Read = () => {
         return date.toLocaleString();
     }
 
+    function deletePost() {
+        repo.delete(idAsNumber);
+    }
+
     return (
         <Container fluid className="p-0">
             <Navigation />
@@ -26,7 +30,11 @@ const Read = () => {
                 <Link to={'/posts/edit/' + post.id} replace>
                     <button className="btn btn-primary pl-3 pr-3">Edit</button>
                 </Link>
-                <button className="btn btn-danger ml-1">Delete</button>
+                <Link to={'/'}>
+                    <button className="btn btn-danger ml-1" onClick={() => deletePost()}>
+                        Delete
+                    </button>
+                </Link>
             </div>
             <Container className="center">
                 <div className="mt-5 mb-5 pb-5 contents">
