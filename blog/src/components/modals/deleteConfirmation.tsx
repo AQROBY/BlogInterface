@@ -1,14 +1,14 @@
 import PostRepo from '../../services/repo';
 
-const DeleteConfirmation = (props: any) => {
+const DeleteConfirmation = ({ open }: { open: boolean }) => {
     const repo = PostRepo.getInstance();
 
-    if (!props.show) {
+    if (!open) {
         return null;
     }
 
     return (
-        <div className="modal">
+        <div>
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">

@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
+import DeleteConfirmation from '../../components/modals/deleteConfirmation';
 import Navigation from '../../components/Navigation';
 import PostRepo from '../../services/repo';
 
 const Read = () => {
     const repo = PostRepo.getInstance();
+    const [openModal, setOpenModal] = useState(false);
     const { id } = useParams();
+
     if (id == undefined) {
         return <h1>Not found!</h1>;
     }
@@ -30,13 +34,12 @@ const Read = () => {
                 <Link to={'/posts/edit/' + post.id} replace>
                     <button className="btn btn-primary pl-3 pr-3">Edit</button>
                 </Link>
-                <Link to={'/'}>
-                    <button className="btn btn-danger ml-1" onClick={() => deletePost()}>
-                        Delete
-                    </button>
-                </Link>
+                <button className="btn btn-danger ml-1" onClick={() => setOpenModal(true)}>
+                    Delete
+                </button>
             </div>
             <Container className="center">
+                <DeleteConfirmation open={openModal} />
                 <div className="mt-5 mb-5 pb-5 contents">
                     <p>{post.contents}</p>
                     <div className="pt-4">
