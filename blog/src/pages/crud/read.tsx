@@ -22,6 +22,10 @@ const Read = () => {
         return date.toLocaleString();
     }
 
+    function handleDeleteButton(bool: boolean) {
+        setOpenModal(bool);
+    }
+
     function deletePost() {
         repo.delete(idAsNumber);
     }
@@ -39,7 +43,7 @@ const Read = () => {
                 </button>
             </div>
             <Container className="center">
-                <DeleteConfirmation open={openModal} />
+                <DeleteConfirmation open={openModal} setOpen={handleDeleteButton} />
                 <div className="mt-5 mb-5 pb-5 contents">
                     <p>{post.contents}</p>
                     <div className="pt-4">

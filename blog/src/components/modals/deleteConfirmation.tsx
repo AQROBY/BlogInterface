@@ -1,36 +1,25 @@
+import { Button, CloseButton, Modal } from 'react-bootstrap';
 import PostRepo from '../../services/repo';
 
-const DeleteConfirmation = ({ open }: { open: boolean }) => {
+const DeleteConfirmation = ({ open, setOpen }: { open: boolean; setOpen: Function }) => {
     const repo = PostRepo.getInstance();
 
-    if (!open) {
-        return null;
-    }
-
     return (
-        <div>
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Modal title</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div className="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-primary">
-                            Save changes
-                        </button>
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
-                            Close
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Modal show={open}>
+            <Modal.Header>
+                <Modal.Title>Warning!</Modal.Title>
+                <CloseButton onClick={() => setOpen(false)} />
+            </Modal.Header>
+            <Modal.Body>
+                <p>Are you sure you want to delete this post?</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="danger">Yes</Button>
+                <Button variant="secondary" onClick={() => setOpen(false)}>
+                    No
+                </Button>
+            </Modal.Footer>
+        </Modal>
     );
 };
 
