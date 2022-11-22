@@ -1,6 +1,6 @@
 import { Button, CloseButton, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import PostRepo from '../../services/repo';
+import PostRepo from '../../services/repoPosts';
 
 const DeleteConfirmation = ({ open, setOpen, handleDelete }: { open: boolean; setOpen: Function; handleDelete: Function }) => {
     const repo = PostRepo.getInstance();

@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
 import DeleteConfirmation from '../../components/modals/deleteConfirmation';
 import Navigation from '../../components/Navigation';
-import PostRepo from '../../services/repo';
+import PostRepo from '../../services/repoPosts';
 
 const Read = () => {
     const repo = PostRepo.getInstance();

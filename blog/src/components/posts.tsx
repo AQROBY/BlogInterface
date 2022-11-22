@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import PostRepo from '../services/repo';
+import PostRepo from '../services/repoPosts';
 
 const Posts = () => {
     const repo = PostRepo.getInstance();

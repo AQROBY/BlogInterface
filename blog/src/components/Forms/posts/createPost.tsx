@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import PostRepo from '../../../services/repo';
+import PostRepo from '../../../services/repoPosts';
 
 const Post = (props: any) => {
     const repo = PostRepo.getInstance();
