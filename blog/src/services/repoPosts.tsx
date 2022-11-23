@@ -19,6 +19,7 @@ class PostRepo {
     }
 
     static find(id: number) {
+        PostRepo.data = sessionStorage.getItem('data');
         this.instance = JSON.parse(PostRepo.data);
         var x = this.instance.find((element: any) => element.id == id);
         return x;

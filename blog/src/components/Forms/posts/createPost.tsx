@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { generatePath, useNavigate } from 'react-router-dom';
 import PostRepo from '../../../services/repoPosts';
 
 const Post = (props: any) => {
@@ -9,7 +9,7 @@ const Post = (props: any) => {
     const [validated, setValidated] = useState(false);
 
     var data: { id: number; title: string; contents: string; created_at: Date; modified_at: Date } = {
-        id: (PostRepo.assignId() + 1).toString(),
+        id: PostRepo.assignId() + 1,
         title: props.title,
         contents: props.contents,
         created_at: new Date(),
@@ -23,10 +23,11 @@ const Post = (props: any) => {
 
             if (props.title == undefined) {
                 repo.create(data);
+                navigate('/posts/read/' + data.id, { replace: true });
             } else {
                 repo.update(props.id, data);
+                navigate('/posts/read/' + props.id, { replace: true });
             }
-            navigate('/', { replace: true });
         }
     };
 
