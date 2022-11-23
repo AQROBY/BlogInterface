@@ -40,6 +40,10 @@ const Post = (props: any) => {
         setValidated(true);
     };
 
+    const handleCancel = (event: any) => {
+        navigate('/posts/read/' + props.id, { replace: true });
+    };
+
     return (
         <Form validated={validated} onSubmit={handleClick} className="mt-3 mb-4" title="Create Post">
             <Form.Group className="mb-3 content">
@@ -55,6 +59,9 @@ const Post = (props: any) => {
             </Form.Group>
             <Button variant="primary" type="submit">
                 Submit
+            </Button>
+            <Button className="ml-1" variant="primary" type="button" onClick={handleCancel}>
+                Cancel
             </Button>
         </Form>
     );
