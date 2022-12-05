@@ -1,7 +1,6 @@
 import { Button, CloseButton, Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
-const DeleteConfirmation = ({ open, setOpen, handleDelete }: { open: boolean; setOpen: Function; handleDelete: Function }) => {
+const EditConfirmation = ({ open, setOpen, handleEdit }: { open: boolean; setOpen: Function; handleEdit: Function }) => {
     return (
         <Modal className="mt-5 pt-4" show={open}>
             <Modal.Header>
@@ -11,14 +10,12 @@ const DeleteConfirmation = ({ open, setOpen, handleDelete }: { open: boolean; se
                 </CloseButton>
             </Modal.Header>
             <Modal.Body>
-                <p>Are you sure you want to delete this post?</p>
+                <p>Are you sure you want to edit this post?</p>
             </Modal.Body>
             <Modal.Footer>
-                <Link to="/">
-                    <Button variant="danger" onClick={() => handleDelete()}>
-                        Yes
-                    </Button>
-                </Link>
+                <Button variant="danger" onClick={() => handleEdit()}>
+                    Yes
+                </Button>
                 <Button variant="primary" onClick={() => setOpen(false)}>
                     No
                 </Button>
@@ -27,4 +24,4 @@ const DeleteConfirmation = ({ open, setOpen, handleDelete }: { open: boolean; se
     );
 };
 
-export default DeleteConfirmation;
+export default EditConfirmation;

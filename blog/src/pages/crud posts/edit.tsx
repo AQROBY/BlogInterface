@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 const Edit = () => {
     const repo = PostRepo.getInstance();
     const { id } = useParams();
+
     if (id == undefined) {
         return <h1>Not found!</h1>;
     }

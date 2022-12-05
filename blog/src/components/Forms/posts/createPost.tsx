@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { generatePath, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PostRepo from '../../../services/repoPosts';
+import EditConfirmation from '../../modals/editConfirmation';
 
 const Post = (props: any) => {
     const repo = PostRepo.getInstance();
     const navigate = useNavigate();
     const [validated, setValidated] = useState(false);
+    const [openEditModal, setOpenEditModal] = useState(false);
 
     var data: { id: number; title: string; contents: string; created_at: Date; modified_at: Date } = {
         id: PostRepo.assignId() + 1,
@@ -16,7 +18,18 @@ const Post = (props: any) => {
         modified_at: new Date()
     };
 
-    const handleClick = (event: any) => {
+    function handleOpenEditModal(event: any) {
+        setOpenEditModal(true);
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    function handleEdit(data: any) {
+        repo.update(props.id, data);
+        navigate('/posts/read/' + props.id, { replace: true });
+    }
+
+    const handleSubmit = (event: any) => {
         if (validated === true) {
             data.title = event.target[0].value;
             data.contents = event.target[1].value;
@@ -25,13 +38,13 @@ const Post = (props: any) => {
                 repo.create(data);
                 navigate('/posts/read/' + data.id, { replace: true });
             } else {
-                repo.update(props.id, data);
-                navigate('/posts/read/' + props.id, { replace: true });
+                handleOpenEditModal(event);
             }
         }
+        return;
     };
 
-    const handleSubmit = (event: any) => {
+    const handleValidation = (event: any) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
             setValidated(false);
@@ -40,30 +53,33 @@ const Post = (props: any) => {
         setValidated(true);
     };
 
-    const handleCancel = (event: any) => {
+    const handleCancel = () => {
         navigate('/posts/read/' + props.id, { replace: true });
     };
 
     return (
-        <Form validated={validated} onSubmit={handleClick} className="mt-3 mb-4" title="Create Post">
-            <Form.Group className="mb-3 content">
-                <Form.Label>Title</Form.Label>
-                <Form.Control required name="title" type="text" placeholder="Enter post title" defaultValue={props.title} onBlur={handleSubmit} />
-                <Form.Text className="text-muted">Example: Sunny Day</Form.Text>
-            </Form.Group>
+        <>
+            <Form validated={validated} onSubmit={handleSubmit} className="mt-3 mb-4" title="Create Post">
+                <EditConfirmation open={openEditModal} setOpen={setOpenEditModal} handleEdit={handleEdit} />
+                <Form.Group className="mb-3 content">
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control required name="title" type="text" placeholder="Enter post title" defaultValue={props.title} onBlur={handleValidation} />
+                    <Form.Text className="text-muted">Example: Sunny Day</Form.Text>
+                </Form.Group>
 
-            <Form.Group className="mb-3 content">
-                <Form.Label>Content</Form.Label>
-                <Form.Control required as="textarea" name="contents" rows={25} placeholder="Enter contents" defaultValue={props.contents} onBlur={handleSubmit} />
-                <Form.Text className="text-muted">Example: The sun was up early today, I wanted to...</Form.Text>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-            <Button className="ml-1" variant="primary" type="button" onClick={handleCancel}>
-                Cancel
-            </Button>
-        </Form>
+                <Form.Group className="mb-3 content">
+                    <Form.Label>Content</Form.Label>
+                    <Form.Control required as="textarea" name="contents" rows={25} placeholder="Enter contents" defaultValue={props.contents} onBlur={handleValidation} />
+                    <Form.Text className="text-muted">Example: The sun was up early today, I wanted to...</Form.Text>
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+                <Button className="ml-1" variant="primary" type="button" onClick={handleCancel}>
+                    Cancel
+                </Button>
+            </Form>
+        </>
     );
 };
 

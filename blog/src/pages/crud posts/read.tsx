@@ -8,7 +8,7 @@ import PostRepo from '../../services/repoPosts';
 
 const Read = () => {
     const repo = PostRepo.getInstance();
-    const [openModal, setOpenModal] = useState(false);
+    const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const { id } = useParams();
 
     if (id == undefined) {
@@ -22,8 +22,8 @@ const Read = () => {
         return date.toLocaleString();
     }
 
-    function handleSetOpenModal(bool: boolean) {
-        setOpenModal(bool);
+    function handleSetOpenDeleteModal(bool: boolean) {
+        setOpenDeleteModal(bool);
     }
 
     function handleDeletePost() {
@@ -38,12 +38,12 @@ const Read = () => {
                 <Link to={'/posts/edit/' + post.id} replace>
                     <button className="btn btn-primary pl-3 pr-3">Edit</button>
                 </Link>
-                <button className="btn btn-danger ml-1" onClick={() => setOpenModal(true)}>
+                <button className="btn btn-danger ml-1" onClick={() => setOpenDeleteModal(true)}>
                     Delete
                 </button>
             </div>
             <Container className="center">
-                <DeleteConfirmation open={openModal} setOpen={handleSetOpenModal} handleDelete={handleDeletePost} />
+                <DeleteConfirmation open={openDeleteModal} setOpen={handleSetOpenDeleteModal} handleDelete={handleDeletePost} />
                 <div className="mt-5 mb-5 pb-5 contents">
                     <p>{post.contents}</p>
                     <div className="pt-4">
