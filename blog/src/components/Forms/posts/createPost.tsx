@@ -19,12 +19,14 @@ const Post = (props: any) => {
     };
 
     function handleOpenEditModal(event: any) {
+        sessionStorage.setItem('tempData', JSON.stringify(data));
         setOpenEditModal(true);
         event.preventDefault();
-        event.stopPropagation();
     }
 
-    function handleEdit(data: any) {
+    function handleEdit() {
+        const temp = JSON.parse(sessionStorage.getItem('tempData') || '{}');
+        data = temp;
         repo.update(props.id, data);
         navigate('/posts/read/' + props.id, { replace: true });
     }
@@ -41,7 +43,6 @@ const Post = (props: any) => {
                 handleOpenEditModal(event);
             }
         }
-        return;
     };
 
     const handleValidation = (event: any) => {
