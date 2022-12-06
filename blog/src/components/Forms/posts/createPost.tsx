@@ -36,7 +36,7 @@ const Post = (props: any) => {
             data.title = event.target[0].value;
             data.contents = event.target[1].value;
 
-            if (props.title == undefined) {
+            if (props.title === undefined) {
                 repo.create(data);
                 navigate('/posts/read/' + data.id, { replace: true });
             } else {

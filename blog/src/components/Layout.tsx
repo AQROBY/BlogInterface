@@ -1,5 +1,5 @@
-import Header from './Header';
-import Navigation from './Navigation';
+import Header from './header';
+import Navigation from './navigation';
 
 const Layout: React.FunctionComponent = () => {
     return (

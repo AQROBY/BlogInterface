@@ -12,7 +12,7 @@ const Navigation: React.FunctionComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="mr-5" id="basic-navbar-nav">
                     <Nav variant="pills" className="mr-5">
-                        <Nav.Link style={{ color: 'black' }} className="mr-2" href="/posts">
+                        <Nav.Link style={{ color: 'black' }} className="mr-2" href="/">
                             Posts
                         </Nav.Link>
                         <Nav.Link style={{ color: 'black' }} className="mr-4" href="/users">

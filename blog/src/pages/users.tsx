@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import Header from '../components/Header';
-import Navigation from '../components/Navigation';
+import Header from '../components/header';
+import Navigation from '../components/navigation';
 
 const Users: React.FunctionComponent = () => {
     return (

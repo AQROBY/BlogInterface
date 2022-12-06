@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 import Post from '../../components/Forms/posts/createPost';
-import Header from '../../components/Header';
-import Navigation from '../../components/Navigation';
+import Header from '../../components/header';
+import Navigation from '../../components/navigation';
 import PostRepo from '../../services/repoPosts';
 import { useParams } from 'react-router-dom';
 

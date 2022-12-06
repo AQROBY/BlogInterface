@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import Header from '../../components/Header';
+import Header from '../../components/header';
 import DeleteConfirmation from '../../components/modals/deleteConfirmation';
-import Navigation from '../../components/Navigation';
+import Navigation from '../../components/navigation';
 import PostRepo from '../../services/repoPosts';
 
 const Read = () => {
