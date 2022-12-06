@@ -1,7 +1,7 @@
 import Post from '../components/posts';
 import { Container } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 
 const Posts: React.FunctionComponent = () => {
     return (

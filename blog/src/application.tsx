@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Create from './pages/crud posts/create';
-import Edit from './pages/crud posts/edit';
-import Read from './pages/crud posts/read';
+import Create from './pages/posts/create';
+import Edit from './pages/posts/edit';
+import Read from './pages/posts/read';
 import Posts from './pages/posts';
 import Users from './pages/users';
 

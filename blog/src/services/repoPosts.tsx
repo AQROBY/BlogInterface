@@ -57,8 +57,7 @@ class PostRepo {
     }
 
     static assignId() {
-        const lastElement = this.instance.length - 1;
-        return this.instance[lastElement].id;
+        return this.instance.length;
     }
 }
 
