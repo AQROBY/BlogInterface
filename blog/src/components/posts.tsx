@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PostRepo from '../services/repoPosts';
+import PostType from './types/postType';
 
 const Posts = () => {
     const repo = PostRepo.getInstance();
@@ -19,8 +20,8 @@ const Posts = () => {
             ) : (
                 repo
                     .findAll()
-                    .sort((a: any, b: any) => (a.created_at < b.created_at ? 1 : -1))
-                    .map((post: any) => (
+                    .sort((a: PostType, b: PostType) => (a.created_at < b.created_at ? 1 : -1))
+                    .map((post: PostType) => (
                         <div className="border mt-3 mb-4 p-3 bgl" key={post.id}>
                             <div className="row p-3">
                                 <Link to={'posts/read/' + post.id} style={{ textDecoration: 'none' }}>

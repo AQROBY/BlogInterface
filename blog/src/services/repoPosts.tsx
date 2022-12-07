@@ -1,3 +1,4 @@
+import PostType from '../components/types/postType';
 import postsSeed from '../mock-posts.json';
 
 class PostRepo {
@@ -21,19 +22,19 @@ class PostRepo {
     static find(id: number) {
         PostRepo.data = sessionStorage.getItem('data');
         this.instance = JSON.parse(PostRepo.data);
-        var x = this.instance.find((element: any) => element.id == id);
+        var x = this.instance.find((element: PostType) => element.id == id);
         return x;
     }
 
-    static create(item: any) {
+    static create(item: PostType) {
         this.instance.push(item);
         const newData = this.instance;
         this.data = newData;
         sessionStorage.setItem('data', JSON.stringify(newData));
     }
 
-    static update(id: number, data: any) {
-        const elementToUpdate = this.instance.find((element: any) => element.id == id);
+    static update(id: number, data: PostType) {
+        const elementToUpdate = this.instance.find((element: PostType) => element.id == id);
         const index = this.instance.indexOf(elementToUpdate);
 
         this.instance[index].title = data.title;
@@ -45,7 +46,7 @@ class PostRepo {
     }
 
     static delete(id: number) {
-        const elementToDelete = this.instance.find((element: any) => element.id == id);
+        const elementToDelete = this.instance.find((element: PostType) => element.id == id);
         const index = this.instance.indexOf(elementToDelete);
         this.instance.splice(index, 1);
         this.data = this.instance;

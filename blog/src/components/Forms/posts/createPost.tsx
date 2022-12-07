@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import PostRepo from '../../../services/repoPosts';
 import EditConfirmation from '../../modals/editConfirmation';
+import PostType from '../../types/postType';
 
 const Post = (props: any) => {
     const repo = PostRepo.getInstance();
@@ -10,7 +11,7 @@ const Post = (props: any) => {
     const [validated, setValidated] = useState(false);
     const [openEditModal, setOpenEditModal] = useState(false);
 
-    var data: { id: number; title: string; contents: string; created_at: Date; modified_at: Date } = {
+    var data: PostType = {
         id: PostRepo.assignId() + 1,
         title: props.title,
         contents: props.contents,
