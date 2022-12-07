@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PostRepo from '../services/repoPosts';
+import Content from './styles/content';
 import PostType from './types/postType';
 
 const Posts = () => {
@@ -27,8 +28,10 @@ const Posts = () => {
                                 <Link to={'posts/read/' + post.id} style={{ textDecoration: 'none' }}>
                                     <div>
                                         <h2>{post.title}</h2>
-                                        <div className="contents mb-3">
-                                            <strong>{formatContent(post.contents)}</strong>
+                                        <div className="mb-3">
+                                            <Content>
+                                                <strong>{formatContent(post.contents)}</strong>
+                                            </Content>
                                         </div>
                                         <p>Created at: {handleDate(new Date(post.created_at))}</p>
                                         <p>Modified at: {handleDate(new Date(post.modified_at))}</p>

@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/header';
 import DeleteConfirmation from '../../components/modals/deleteConfirmation';
 import Navigation from '../../components/navigation';
+import Content from '../../components/styles/content';
 import PostRepo from '../../services/repoPosts';
 
 const Read = () => {
@@ -44,8 +45,10 @@ const Read = () => {
             </div>
             <Container className="center">
                 <DeleteConfirmation open={openDeleteModal} setOpen={handleSetOpenDeleteModal} handleDelete={handleDeletePost} />
-                <div className="mt-5 mb-5 pb-5 contents">
-                    <p>{post.contents}</p>
+                <div className="mt-5 mb-5 pb-5">
+                    <Content>
+                        <p>{post.contents}</p>
+                    </Content>
                     <div className="pt-4">
                         <h3 className="float-left">Created at: {handleDate(new Date(post.created_at))}</h3>
                         <h3 className="float-right">Modified at: {handleDate(new Date(post.modified_at))}</h3>
