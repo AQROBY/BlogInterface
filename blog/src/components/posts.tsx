@@ -22,7 +22,7 @@ const Posts = () => {
                     .findAll()
                     .sort((a: PostType, b: PostType) => (a.created_at < b.created_at ? 1 : -1))
                     .map((post: PostType) => (
-                        <div className="border mt-3 mb-4 p-3 bgl" key={post.id}>
+                        <div className="border border-dark mt-3 mb-4 p-3 bgl" key={post.id}>
                             <div className="row p-3">
                                 <Link to={'posts/read/' + post.id} style={{ textDecoration: 'none' }}>
                                     <div>
