@@ -5,10 +5,12 @@ import Edit from './pages/posts/edit';
 import Read from './pages/posts/read';
 import Posts from './pages/posts';
 import Users from './pages/users';
+import GlobalStyle from './globalStyles';
 
 const Application: React.FunctionComponent = () => {
     return (
         <BrowserRouter>
+            <GlobalStyle />
             <Routes>
                 <Route path="/">
                     <Route path="" element={<Posts />} />

@@ -46,9 +46,7 @@ const Read = () => {
             <Container className="center">
                 <DeleteConfirmation open={openDeleteModal} setOpen={handleSetOpenDeleteModal} handleDelete={handleDeletePost} />
                 <div className="mt-5 mb-5 pb-5">
-                    <Content>
-                        <p>{post.contents}</p>
-                    </Content>
+                    <Content>{post.contents}</Content>
                     <div className="pt-4">
                         <h3 className="float-left">Created at: {handleDate(new Date(post.created_at))}</h3>
                         <h3 className="float-right">Modified at: {handleDate(new Date(post.modified_at))}</h3>
