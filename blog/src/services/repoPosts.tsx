@@ -1,12 +1,29 @@
 import PostType from '../components/types/postType';
 import postsSeed from '../mock-posts.json';
 
+interface Post {
+    title: string;
+    contents: string;
+    modified_at: string;
+    id: number;
+}
+
+interface Data {
+    [key: number]: Post;
+    find: Function;
+    push: Function;
+    indexOf: Function;
+    splice: Function;
+    length: number;
+    sort: Function;
+    lastIndexOf: Function;
+}
+
 class PostRepo {
-    static instance: any = null;
-    static data: any = null;
+    static data: Data;
+
     static getInstance() {
         if (sessionStorage.getItem('data') == null) {
-            PostRepo.instance = new PostRepo();
             PostRepo.data = postsSeed;
             sessionStorage.setItem('data', JSON.stringify(postsSeed));
         }
@@ -14,43 +31,39 @@ class PostRepo {
     }
 
     static findAll() {
-        PostRepo.data = sessionStorage.getItem('data');
-        this.instance = JSON.parse(PostRepo.data);
-        return this.instance;
+        PostRepo.data = JSON.parse(sessionStorage.getItem('data')!);
+        return PostRepo.data;
     }
 
     static find(id: number) {
-        PostRepo.data = sessionStorage.getItem('data');
-        this.instance = JSON.parse(PostRepo.data);
-        var x = this.instance.find((element: PostType) => element.id == id);
-        return x;
+        PostRepo.data = JSON.parse(sessionStorage.getItem('data')!);
+        var element = PostRepo.data.find((element: PostType) => element.id == id);
+        return element;
     }
 
     static create(item: PostType) {
-        this.instance.push(item);
-        const newData = this.instance;
-        this.data = newData;
-        sessionStorage.setItem('data', JSON.stringify(newData));
+        PostRepo.data = JSON.parse(sessionStorage.getItem('data')!);
+        this.data = PostRepo.data;
+        this.data.push(item);
+        sessionStorage.setItem('data', JSON.stringify(this.data));
     }
 
     static update(id: number, data: PostType) {
-        const elementToUpdate = this.instance.find((element: PostType) => element.id == id);
-        const index = this.instance.indexOf(elementToUpdate);
-
-        this.instance[index].title = data.title;
-        this.instance[index].contents = data.contents;
-        this.instance[index].modified_at = data.modified_at;
-        const newData = this.instance;
-        this.data = newData;
-        sessionStorage.setItem('data', JSON.stringify(newData));
+        PostRepo.data = JSON.parse(sessionStorage.getItem('data')!);
+        const elementToUpdate = PostRepo.data.find((element: PostType) => element.id == id);
+        const index: number = this.data.indexOf(elementToUpdate);
+        this.data[index].title = data.title;
+        this.data[index].contents = data.contents;
+        this.data[index].modified_at = data.modified_at.toString();
+        sessionStorage.setItem('data', JSON.stringify(this.data));
     }
 
     static delete(id: number) {
-        const elementToDelete = this.instance.find((element: PostType) => element.id == id);
-        const index = this.instance.indexOf(elementToDelete);
-        this.instance.splice(index, 1);
-        this.data = this.instance;
-        sessionStorage.setItem('data', JSON.stringify(this.instance));
+        PostRepo.data = JSON.parse(sessionStorage.getItem('data')!);
+        const elementToDelete = PostRepo.data.find((element: PostType) => element.id == id);
+        const index = this.data.indexOf(elementToDelete);
+        this.data.splice(index, 1);
+        sessionStorage.setItem('data', JSON.stringify(this.data));
     }
 
     static size() {
@@ -58,7 +71,10 @@ class PostRepo {
     }
 
     static assignId() {
-        return this.instance.length;
+        PostRepo.data = JSON.parse(sessionStorage.getItem('data')!);
+        const length = this.data.length - 1;
+        const lastIndex = this.data[length].id;
+        return lastIndex;
     }
 }
 

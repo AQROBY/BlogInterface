@@ -56,7 +56,11 @@ const Post = (props: any) => {
     };
 
     const handleCancel = () => {
-        navigate('/posts/read/' + props.id, { replace: true });
+        if (props.id != undefined) {
+            navigate('/posts/read/' + props.id, { replace: true });
+        } else {
+            navigate('/', { replace: true });
+        }
     };
 
     return (
