@@ -10,8 +10,9 @@ const Post = (props: any) => {
     const navigate = useNavigate();
     const [validated, setValidated] = useState(false);
     const [openEditModal, setOpenEditModal] = useState(false);
+    const [dataTemp, setDataTemp] = useState<PostType>();
 
-    var data: PostType = {
+    const data: PostType = {
         id: PostRepo.assignId() + 1,
         title: props.title,
         contents: props.contents,
@@ -20,14 +21,16 @@ const Post = (props: any) => {
     };
 
     function handleOpenEditModal(event: any) {
-        sessionStorage.setItem('tempData', JSON.stringify(data));
         setOpenEditModal(true);
         event.preventDefault();
     }
 
     function handleEdit() {
-        const temp = JSON.parse(sessionStorage.getItem('tempData') || '{}');
-        data = temp;
+        if (dataTemp != undefined) {
+            data.title = dataTemp.title;
+            data.contents = dataTemp.contents;
+            data.modified_at = dataTemp.modified_at;
+        }
         repo.update(props.id, data);
         navigate('/posts/read/' + props.id, { replace: true });
     }
@@ -36,6 +39,7 @@ const Post = (props: any) => {
         if (validated === true) {
             data.title = event.target[0].value;
             data.contents = event.target[1].value;
+            setDataTemp(data);
 
             if (props.title === undefined) {
                 repo.create(data);
