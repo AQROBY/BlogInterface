@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/header';
-import DeleteConfirmation from '../../components/modals/deleteConfirmation';
+import Confirmation from '../../components/modals/confirmation';
 import Navigation from '../../components/navigation';
 import Content from '../../components/styles/content';
 import PostRepo from '../../services/repoPosts';
@@ -12,7 +12,7 @@ const Read = () => {
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const { id } = useParams();
 
-    if (id == undefined) {
+    if (id === undefined) {
         return <h1>Not found!</h1>;
     }
 
@@ -44,7 +44,7 @@ const Read = () => {
                 </button>
             </div>
             <Container className="center">
-                <DeleteConfirmation open={openDeleteModal} setOpen={handleSetOpenDeleteModal} handleDelete={handleDeletePost} />
+                <Confirmation open={openDeleteModal} setOpen={handleSetOpenDeleteModal} handleOperation={handleDeletePost} />
                 <div className="mt-5 mb-5 pb-5">
                     <Content>{post.contents}</Content>
                     <div className="pt-4">

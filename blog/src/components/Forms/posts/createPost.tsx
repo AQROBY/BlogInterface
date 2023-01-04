@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import PostRepo from '../../../services/repoPosts';
-import EditConfirmation from '../../modals/editConfirmation';
+import Confirmation from '../../modals/confirmation';
 import PostType from '../../types/postType';
 
 const Post = (props: any) => {
@@ -32,7 +32,6 @@ const Post = (props: any) => {
             data.modified_at = dataTemp.modified_at;
         }
         repo.update(props.id, data);
-        navigate('/posts/read/' + props.id, { replace: true });
     }
 
     const handleSubmit = (event: any) => {
@@ -70,7 +69,7 @@ const Post = (props: any) => {
     return (
         <>
             <Form validated={validated} onSubmit={handleSubmit} className="mt-3 mb-4" title="Create Post">
-                <EditConfirmation open={openEditModal} setOpen={setOpenEditModal} handleEdit={handleEdit} />
+                <Confirmation open={openEditModal} setOpen={setOpenEditModal} handleOperation={handleEdit} id={props.id} />
                 <Form.Group className="mb-3 content">
                     <Form.Label>Title</Form.Label>
                     <Form.Control required name="title" type="text" placeholder="Enter post title" defaultValue={props.title} onBlur={handleValidation} />
