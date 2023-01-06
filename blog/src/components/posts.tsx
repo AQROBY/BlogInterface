@@ -27,14 +27,16 @@ const Posts = () => {
                             <div className="row p-3">
                                 <Link to={'posts/read/' + post.id} style={{ textDecoration: 'none' }}>
                                     <div>
-                                        <h2>{post.title}</h2>
+                                        <h2 className="text-dark font-weight-bold">{post.title}</h2>
                                         <div className="mb-3">
                                             <Content>
                                                 <strong>{formatContent(post.contents)}</strong>
                                             </Content>
                                         </div>
-                                        <p>Created at: {handleDate(new Date(post.created_at))}</p>
-                                        <p>Modified at: {handleDate(new Date(post.modified_at))}</p>
+                                        <div className="text-dark font-weight-bold">
+                                            <p>Created at: {handleDate(new Date(post.created_at))}</p>
+                                            <p>Modified at: {handleDate(new Date(post.modified_at))}</p>
+                                        </div>
                                     </div>
                                 </Link>
                             </div>

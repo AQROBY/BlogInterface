@@ -71,15 +71,15 @@ const Post = (props: any) => {
             <Form validated={validated} onSubmit={handleSubmit} className="mt-3 mb-4" title="Create Post">
                 <Confirmation open={openEditModal} setOpen={setOpenEditModal} handleOperation={handleEdit} id={props.id} />
                 <Form.Group className="mb-3 content">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control required name="title" type="text" placeholder="Enter post title" defaultValue={props.title} onBlur={handleValidation} />
-                    <Form.Text className="text-muted">Example: Sunny Day</Form.Text>
+                    <Form.Label className="text-dark">Title</Form.Label>
+                    <Form.Control className="bg-light" required name="title" type="text" placeholder="Enter post title" defaultValue={props.title} onBlur={handleValidation} />
+                    <Form.Text className="text-dark">Example: Sunny Day</Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3 content">
-                    <Form.Label>Content</Form.Label>
-                    <Form.Control required as="textarea" name="contents" rows={25} placeholder="Enter contents" defaultValue={props.contents} onBlur={handleValidation} />
-                    <Form.Text className="text-muted">Example: The sun was up early today, I wanted to...</Form.Text>
+                    <Form.Label className="text-dark">Content</Form.Label>
+                    <Form.Control className="bg-light" required as="textarea" name="contents" rows={25} placeholder="Enter contents" defaultValue={props.contents} onBlur={handleValidation} />
+                    <Form.Text className="text-dark">Example: The sun was up early today, I wanted to...</Form.Text>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit

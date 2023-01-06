@@ -48,8 +48,8 @@ const Read = () => {
                 <div className="mt-5 mb-5 pb-5">
                     <Content>{post.contents}</Content>
                     <div className="pt-4">
-                        <h3 className="float-left">Created at: {handleDate(new Date(post.created_at))}</h3>
-                        <h3 className="float-right">Modified at: {handleDate(new Date(post.modified_at))}</h3>
+                        <h3 className="float-left text-dark">Created at: {handleDate(new Date(post.created_at))}</h3>
+                        <h3 className="float-right text-dark">Modified at: {handleDate(new Date(post.modified_at))}</h3>
                     </div>
                 </div>
             </Container>
