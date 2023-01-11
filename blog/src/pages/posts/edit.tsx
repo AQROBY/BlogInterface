@@ -1,7 +1,6 @@
 import { Container } from 'react-bootstrap';
 import Post from '../../components/Forms/posts/createPost';
 import Header from '../../components/header';
-import Navigation from '../../components/navigation';
 import PostRepo from '../../services/repoPosts';
 import { useParams } from 'react-router-dom';
 
@@ -18,8 +17,7 @@ const Edit = () => {
 
     return (
         <Container fluid className="p-0">
-            <Navigation />
-            <Header title="Create Post" />
+            <Header title="Edit Post" />
             <Container className="center">{<Post id={post.id} title={post.title} contents={post.contents} />}</Container>
         </Container>
     );

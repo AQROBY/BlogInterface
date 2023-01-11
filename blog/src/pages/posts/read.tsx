@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/header';
 import Confirmation from '../../components/modals/confirmation';
-import Navigation from '../../components/navigation';
 import Content from '../../components/styles/content';
 import PostRepo from '../../services/repoPosts';
 
@@ -33,7 +32,6 @@ const Read = () => {
 
     return (
         <Container fluid className="p-0">
-            <Navigation />
             <Header title={post.title} />
             <div className="float-right mr-5 mt-3 pr-5">
                 <Link to={'/posts/edit/' + post.id} replace>

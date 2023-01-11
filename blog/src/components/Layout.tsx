@@ -1,13 +1,11 @@
-import Header from './header';
+import { Outlet } from 'react-router-dom';
 import Navigation from './navigation';
 
 const Layout: React.FunctionComponent = () => {
     return (
         <div>
             <Navigation />
-            <div className="main">
-                <Header title="Posts" />
-            </div>
+            <Outlet />
         </div>
     );
 };
