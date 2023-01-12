@@ -1,8 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Create from './pages/posts/create';
-import Edit from './pages/posts/edit';
-import Read from './pages/posts/read';
+import CreatePost from './pages/posts/create';
+import CreateUser from './pages/users/create';
+import EditPost from './pages/posts/edit';
+import EditUser from './pages/users/create';
+import ReadPost from './pages/posts/read';
+import ReadUser from './pages/users/create';
 import Posts from './pages/posts';
 import Users from './pages/users';
 import GlobalStyle from './globalStyles';
@@ -20,12 +23,15 @@ const Application: React.FunctionComponent = () => {
                 </Route>
                 <Route path="posts" element={<Layout />}>
                     <Route path="" element={<Posts />} />
-                    <Route path="create" element={<Create />} />
-                    <Route path="read/:id" element={<Read />} />
-                    <Route path="edit/:id" element={<Edit />} />
+                    <Route path="create" element={<CreatePost />} />
+                    <Route path="read/:id" element={<ReadPost />} />
+                    <Route path="edit/:id" element={<EditPost />} />
                 </Route>
                 <Route path="/users" element={<Layout />}>
                     <Route path="" element={<Users />} />
+                    <Route path="create" element={<CreateUser />} />
+                    <Route path="read/:id" element={<ReadUser />} />
+                    <Route path="edit/:id" element={<EditUser />} />
                 </Route>
             </Routes>
         </BrowserRouter>

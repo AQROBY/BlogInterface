@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import User from '../components/users';
 import { Container } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import Header from '../components/header';
 
 const Users: React.FunctionComponent = () => {
@@ -11,11 +11,12 @@ const Users: React.FunctionComponent = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <Link to="posts/create">
+                            <Link to="/users/create" replace>
                                 <button type="button" className="modalButton mt-3 btn btn-primary">
-                                    Add Post
+                                    Add User
                                 </button>
                             </Link>
+                            <User />
                         </div>
                     </div>
                 </div>

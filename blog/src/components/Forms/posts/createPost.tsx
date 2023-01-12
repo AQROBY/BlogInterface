@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import PostRepo from '../../../services/repoPosts';
-import Confirmation from '../../modals/confirmation';
+import Confirmation from '../../modals/posts/confirmation';
 import PostType from '../../types/postType';
 
 const Post = (props: any) => {
