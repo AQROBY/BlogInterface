@@ -34,7 +34,7 @@ const Read = () => {
         <Container fluid className="p-0">
             <Header title={user.name} />
             <div className="float-right mr-5 mt-3 pr-5">
-                <Link to={'users/edit' + user.id} replace>
+                <Link to={'/users/edit/' + user.id} replace>
                     <button className="btn btn-primary pl-3 pr-3">Edit</button>
                 </Link>
                 <button className="btn btn-danger ml-1" onClick={() => setOpenDeleteModal(true)}>

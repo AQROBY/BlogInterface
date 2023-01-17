@@ -11,7 +11,7 @@ const Confirmation = ({ open, setOpen, handleOperation, id = -1 }: { open: boole
 
     function handleLink() {
         if (id === -1) {
-            return '/';
+            return '/users';
         }
         return '/users/read/' + id;
     }

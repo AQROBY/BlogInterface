@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import UserRepo from '../../../services/repoUsers';
-import Confirmation from '../../modals/posts/confirmation';
+import Confirmation from '../../modals/users/confirmation';
 import UserType from '../../types/userType';
 
 const User = (props: any) => {

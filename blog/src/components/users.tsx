@@ -21,7 +21,7 @@ const Users = () => {
                     .map((user: UserType) => (
                         <div className="border border-dark mt-3 mb-4 p-3 bgl" key={user.id}>
                             <div className="row p-3">
-                                <Link to={'users/read/' + user.id} replace style={{ textDecoration: 'none' }}>
+                                <Link to={'read/' + user.id} replace style={{ textDecoration: 'none' }}>
                                     <div>
                                         <h2 className="text-dark font-weight-bold">{user.name}</h2>
                                         <div className="mb-3">
