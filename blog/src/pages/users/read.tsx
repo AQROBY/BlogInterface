@@ -32,7 +32,7 @@ const Read = () => {
 
     return (
         <Container fluid className="p-0">
-            <Header title={user.name} />
+            <Header title={'User: ' + user.name} />
             <div className="float-right mr-5 mt-3 pr-5">
                 <Link to={'/users/edit/' + user.id} replace>
                     <button className="btn btn-primary pl-3 pr-3">Edit</button>
@@ -44,8 +44,9 @@ const Read = () => {
             <Container className="center">
                 <Confirmation open={openDeleteModal} setOpen={handleSetOpenDeleteModal} handleOperation={handleDeletePost} />
                 <div className="mt-5 mb-5 pb-5">
-                    <Content>{user.email}</Content>
-                    <Content>{user.password}</Content>
+                    <Content>E-mail: {user.email}</Content>
+                    <br />
+                    <Content>Password: {user.password}</Content>
                     <div className="pt-4">
                         <h3 className="float-left text-dark">Created at: {handleDate(new Date(user.created_at))}</h3>
                         <h3 className="float-right text-dark">Modified at: {handleDate(new Date(user.modified_at))}</h3>

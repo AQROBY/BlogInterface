@@ -23,11 +23,12 @@ const Users = () => {
                             <div className="row p-3">
                                 <Link to={'read/' + user.id} replace style={{ textDecoration: 'none' }}>
                                     <div>
-                                        <h2 className="text-dark font-weight-bold">{user.name}</h2>
+                                        <h2 className="text-dark font-weight-bold">User: {user.name}</h2>
                                         <div className="mb-3">
                                             <Content>
-                                                <strong>{user.email}</strong>
-                                                <strong>{user.password}</strong>
+                                                <strong>E-mail: {user.email}</strong>
+                                                <br />
+                                                <strong>Password: {user.password}</strong>
                                             </Content>
                                         </div>
                                         <div className="text-dark font-weight-bold">
